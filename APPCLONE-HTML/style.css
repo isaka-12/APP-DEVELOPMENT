@@ -1,0 +1,270 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #646262;
+    display: flex;
+    justify-content: center;
+}
+#my-app{
+    width: 360px;
+    height: 800px;
+    background-color: #E1F1F5;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+#top-sect{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: #589BFF;
+    width: 100%;
+    height: 300px;
+    border-radius: 25px 25px 40px 40px;
+    box-shadow: #9c9a9a 0 2px 0;
+
+    .top-sect-items{
+       
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .top-sect-title{
+            /* width: 320px;
+            height: 170px; */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            h1{
+                font-size: 36px;
+                margin: 60px 0 0 0;
+                padding: 0;
+            }
+            h3{
+                font-size: 20px;
+                margin: 20px 0 0 0;
+                padding: 0;
+            }
+           
+        }
+        .top-sect-content{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+
+            button{
+                width: 130px;
+                height: 25px;
+                background-color: #589BFF;
+                border: 2px solid #ffffff;
+                border-radius: 20px;
+                margin: 10px;
+                color: #ffffff;
+                font-size: 16px;
+            }
+            .top-sect-container{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 320px;
+                padding: 0;
+                margin:0 20px;
+                
+               
+                .brands{
+                    width: 100px;
+                    height: 90px;
+                    
+                    border-radius: 20px;
+                    background-color: #ffffff;
+                }
+            }
+        }
+    }
+}
+#main{
+    height: 432px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .direction{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 10px 20px 0 20px;
+
+        p{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #ffffff;
+            width: 95px;
+            height: 27px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        button{
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            width: 95px;
+            height: 27px;
+            padding: 8px;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 20px;
+            text-align: center;
+            color: #589BFF;
+
+            span{
+                font-size: 16px;
+                color: #000000;
+                padding: 8px 2px;
+
+                
+            }
+        }
+    }
+    .messages{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 16px;
+        margin: 10px 20px;
+        height: 85px;
+        background-color: #ffffff;
+        border-radius: 20px;
+        align-items: center;
+       
+        
+
+        .sender-icon{
+            width: 60px;
+            height: 60px;
+            background-color: #E1F1F5;
+            border-radius: 16px;
+            padding: 0;
+            margin: 0;
+        }
+        .message-content{
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            padding: 0;
+            gap: 0;
+            margin: 0;
+
+            p{
+                margin: 0;
+                padding: 4px;
+                text-align: left;
+            }
+            #name{
+                font-size: 16px;
+                font-weight: bold;
+            }
+            #amount{
+                font-size: 16px;
+                text-align: center;
+                width: 136px;
+                padding: 0;
+                padding: 2px;
+                height: 20px;
+                background-color: #E1F1F5;
+                border-radius: 5px;
+            }
+            #reference{
+                font-size: 16px;
+                color: #fa0202;
+            }
+        }
+        .details{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            gap: 0;
+
+            p{
+                margin: 4px;
+                padding: 0;
+                text-align: center;
+            }
+
+            .day-container{
+               background-color: #8FFF93;
+               width: 70px;
+               height: 20px;
+               font-size: 12px;
+               border-radius: 5px;
+            }
+            .time-container{
+                font-size: 12px;
+            }
+        }
+    }
+}
+#bottom-sect{
+    width: 100%;
+    height: 68px;
+    padding: 0;
+    margin: 0;
+    border-radius: 25px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        font-size: 12px;
+        padding-bottom: 10px;
+
+        p{
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    button{
+        width: 36px;
+        height: 36px;
+        margin: 0 16px;
+        padding: 0;
+        font-size: 28px;
+        background-color: #ffffff;
+        color: #589BFF;
+        border: none;
+        cursor: pointer;   
+    }
+    #add-btn{
+        height: 50px;
+        width: 50px;
+        font-size: 40px;
+        background-color: #ffffff;
+        border: 2px solid #589BFF;
+        border-radius: 100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
