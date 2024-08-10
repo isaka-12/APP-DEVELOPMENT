@@ -1,16 +1,100 @@
-body{
-    font-family: 'Roboto', sans-serif;
-    margin: 20px;
+<script setup>
+
+</script>
+
+<template>
+  <div class="container">
+    <div id="my-app">
+              <div id="top-sect">
+                  <div class="top-sect-items">
+                      <div class="top-sect-title">
+                          <h1>Welcome back</h1>
+                          <h3>Service Providers</h3>
+                      </div>
+                      <div class="top-sect-content">
+                          <div class="top-sect-container">
+                              <div class="brands"></div>
+                              <div class="brands"></div>
+                              <div class="brands"></div>
+                          </div>
+                          <button>View More</button>
+                      </div>
+                    
+                  </div>
+              </div>
+              <div id="main">
+                  <div class="direction">
+                      <p>Recents</p>
+                      <button type="button"><span>View All</span><i class="fa-solid fa-chevron-right"></i></button>
+                  </div>
+                  <div class="messages">
+                      <div class="sender-icon"></div>
+                      <div class="message-content">
+                          <p id="name">John Doe</p>
+                          <p id="amount">254,000-Tshs</p>
+                          <p id="reference">ID:2345-xxxx-xxx</p>
+                      </div>
+                      <div class="details">
+                          <div class="day-container">
+                              <p>Today</p>
+                          </div>
+                          <div class="time-container">
+                              <p>12:00</p>
+                              <p>Outgoing</p>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              <div id="bottom-sect">
+                  <div class="buttons">
+                      <button class="icon"><i class="fa-solid fa-house-chimney"></i></button>
+                      <p>Home</p>
+                  </div>
+                  <div class="buttons">
+                      <button class="icon"><i class="fa-solid fa-file-lines"></i></button>
+                      <p>Report</p>
+                  </div>
+                  <div class="buttons" >
+                      <button class="icon" id="add-btn"><i class="fa-solid fa-circle-plus"></i></button>
+                      
+                  </div>
+                  <div class="buttons">
+                      <button class="icon"><i class="fa-solid fa-pen-to-square"></i></button>
+                      <p>Note</p>
+                  </div>
+                  <div class="buttons">
+                      <button class="icon"><i class="fa-solid fa-user"></i></button>
+                      <p>Profile</p>
+                  </div>
+                  
+              </div>
+              
+          </div>
+  </div>
+</template>
+
+<style scoped>
+*{
+    margin: 0;
     padding: 0;
-    background-color: #646262;
+    
+}
+.container{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    
     display: flex;
     justify-content: center;
     width: 100vw;
-    height: 800px;
+    background-color: rgb(14, 15, 16);
+    
+    overflow-x: hidden;
 }
 #my-app{
     width: 360px;
     height: 800px;
+    margin: 20px 0;
     background-color: #E1F1F5;
     border-radius: 25px;
     display: flex;
@@ -272,3 +356,5 @@ body{
     }
 
 }
+
+</style>
