@@ -1,5 +1,74 @@
 <script setup>
+import { ref } from 'vue'
 
+//messages array that will be displayed
+const messages = ref([])
+
+// Data structure to hold predefined messages
+const predefinedMessages = [
+  {
+    sender: "Alice",
+    amount: "500,000-Tshs",
+    transactionId: "ID:1111-aaaa-aaa",
+    day: "Today",
+    time: "14:00",
+    status: "Incoming"
+  },
+  {
+    sender: "Bob",
+    amount: "300,000-Tshs",
+    transactionId: "ID:2222-bbbb-bbb",
+    day: "Yesterday",
+    time: "16:30",
+    status: "Outgoing"
+  },{
+    sender: "Bob",
+    amount: "300,000-Tshs",
+    transactionId: "ID:2222-bbbb-bbb",
+    day: "Yesterday",
+    time: "16:30",
+    status: "Outgoing"
+  },{
+    sender: "Bob",
+    amount: "300,000-Tshs",
+    transactionId: "ID:2222-bbbb-bbb",
+    day: "Yesterday",
+    time: "16:30",
+    status: "Outgoing"
+  },{
+    sender: "Bob",
+    amount: "300,000-Tshs",
+    transactionId: "ID:2222-bbbb-bbb",
+    day: "Yesterday",
+    time: "16:30",
+    status: "Outgoing"
+  },{
+    sender: "Bob",
+    amount: "300,000-Tshs",
+    transactionId: "ID:2222-bbbb-bbb",
+    day: "Yesterday",
+    time: "16:30",
+    status: "Outgoing"
+  }
+  // Add more messages as needed
+]
+
+// Index to track the current message in predefinedMessages
+const currentMessageIndex = ref(0)
+
+// Function to add the next message from predefinedMessages
+const addMessage = () => {
+  if (currentMessageIndex.value < predefinedMessages.length) {
+    
+    messages.value.push(predefinedMessages[currentMessageIndex.value])
+
+    
+    currentMessageIndex.value++
+  } else {
+   
+    console.log('No more messages to add')
+  }
+}
 </script>
 
 <template>
@@ -13,9 +82,9 @@
                       </div>
                       <div class="top-sect-content">
                           <div class="top-sect-container">
-                              <div class="brands"></div>
-                              <div class="brands"></div>
-                              <div class="brands"></div>
+                              <div class="brands"><img src="/src/assets/M-Pesa.jpeg" alt=""></div>
+                              <div class="brands"><img src="/src/assets/tigo.png" alt=""></div>
+                              <div class="brands"><img src="/src/assets/nmb.png" alt=""></div>
                           </div>
                           <button>View More</button>
                       </div>
@@ -27,20 +96,20 @@
                       <p>Recents</p>
                       <button type="button"><span>View All</span><i class="fa-solid fa-chevron-right"></i></button>
                   </div>
-                  <div class="messages">
+                  <div class="messages" v-for="(message, index) in messages" :key="index">
                       <div class="sender-icon"></div>
                       <div class="message-content">
-                          <p id="name">John Doe</p>
-                          <p id="amount">254,000-Tshs</p>
-                          <p id="reference">ID:2345-xxxx-xxx</p>
+                          <p id="name">{{ message.sender }}</p>
+                          <p id="amount">{{message.amount}}</p>
+                          <p id="reference">{{message.transactionId}}</p>
                       </div>
                       <div class="details">
                           <div class="day-container">
-                              <p>Today</p>
+                              <p>{{ message.day }}</p>
                           </div>
                           <div class="time-container">
-                              <p>12:00</p>
-                              <p>Outgoing</p>
+                              <p>{{ message.time }}</p>
+                              <p>{{ message.status}}</p>
                           </div>
                       </div>
                   </div>
@@ -55,7 +124,7 @@
                       <p>Report</p>
                   </div>
                   <div class="buttons" >
-                      <button class="icon" id="add-btn"><i class="fa-solid fa-circle-plus"></i></button>
+                      <button class="icon" id="add-btn" @click="addMessage"><i class="fa-solid fa-circle-plus"></i></button>
                       
                   </div>
                   <div class="buttons">
@@ -63,7 +132,7 @@
                       <p>Note</p>
                   </div>
                   <div class="buttons">
-                      <button class="icon"><i class="fa-solid fa-user"></i></button>
+                      <button class="icon" ><i class="fa-solid fa-user"></i></button>
                       <p>Profile</p>
                   </div>
                   
@@ -108,7 +177,7 @@
     width: 100%;
     height: 300px;
     border-radius: 25px 25px 40px 40px;
-    box-shadow: #9c9a9a 0 2px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
     .top-sect-items{
        
@@ -165,9 +234,19 @@
                 .brands{
                     width: 100px;
                     height: 90px;
-                    
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     border-radius: 20px;
                     background-color: #ffffff;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+
+                    img{
+                        width: 90px;
+                        height: 80px;
+                        border-radius: 16px;
+                    }
                 }
             }
         }
@@ -178,6 +257,17 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+      /* Hide scrollbar for all browsers */
+      scrollbar-width: none; /* Firefox */
+     -ms-overflow-style: none; 
+
+    ::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+    }
+    
 
     .direction{
         display: flex;
@@ -303,6 +393,9 @@
         }
     }
 }
+.messages:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 #bottom-sect{
     width: 100%;
     height: 68px;
@@ -338,6 +431,14 @@
         color: #589BFF;
         border: none;
         cursor: pointer;
+
+        :hover{
+            font-weight: bolder;
+            color: #0a1320;
+           
+    
+        }
+        
         
         
     }
