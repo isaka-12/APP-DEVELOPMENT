@@ -4,12 +4,12 @@ import { ref } from 'vue'
 //messages array that will be displayed
 const messages = ref([])
 
-// Data structure to hold predefined messages
+//Data structure to hold predefined messages
 const predefinedMessages = [
   {
-    sender: "Alice",
+    sender: "Isaka Mtweve",
     amount: "500,000-Tshs",
-    transactionId: "ID:1111-aaaa-aaa",
+    transactionId: "id:BGK5DX6C42Z",
     day: "Today",
     time: "14:00",
     status: "Incoming"
@@ -17,15 +17,15 @@ const predefinedMessages = [
   {
     sender: "Bob",
     amount: "300,000-Tshs",
-    transactionId: "ID:2222-bbbb-bbb",
+    transactionId: "id:1914aaa223d3aa7",
     day: "Yesterday",
     time: "16:30",
     status: "Outgoing"
   },{
-    sender: "Bob",
+    sender: "Bob Alice",
     amount: "300,000-Tshs",
     transactionId: "ID:2222-bbbb-bbb",
-    day: "Yesterday",
+    day: "August,11",
     time: "16:30",
     status: "Outgoing"
   },{
@@ -91,11 +91,12 @@ const addMessage = () => {
                     
                   </div>
               </div>
-              <div id="main">
-                  <div class="direction">
+              <div class="direction">
                       <p>Recents</p>
                       <button type="button"><span>View All</span><i class="fa-solid fa-chevron-right"></i></button>
                   </div>
+              <div id="main">
+                 
                   <div class="messages" v-for="(message, index) in messages" :key="index">
                       <div class="sender-icon"></div>
                       <div class="message-content">
@@ -201,7 +202,7 @@ const addMessage = () => {
             }
             h3{
                 font-size: 20px;
-                margin: 20px 0 0 0;
+                margin: 5px 0 0 0;
                 padding: 0;
             }
            
@@ -221,6 +222,8 @@ const addMessage = () => {
                 margin: 10px;
                 color: #ffffff;
                 font-size: 16px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
             }
             .top-sect-container{
                 display: flex;
@@ -252,24 +255,7 @@ const addMessage = () => {
         }
     }
 }
-#main{
-    height: 432px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: hidden;
-
-      /* Hide scrollbar for all browsers */
-      scrollbar-width: none; /* Firefox */
-     -ms-overflow-style: none; 
-
-    ::-webkit-scrollbar {
-        display: none; /* Safari and Chrome */
-    }
-    
-
-    .direction{
+.direction{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -287,6 +273,8 @@ const addMessage = () => {
             height: 27px;
             border-radius: 20px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
         }
         button{
             border: none;
@@ -302,6 +290,8 @@ const addMessage = () => {
             border-radius: 20px;
             text-align: center;
             color: #589BFF;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
 
             span{
                 font-size: 16px;
@@ -312,6 +302,22 @@ const addMessage = () => {
             }
         }
     }
+#main{
+    height: 432px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+      /* Hide scrollbar for all browsers */
+      scrollbar-width: none; /* Firefox */
+     -ms-overflow-style: none; 
+
+    ::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+    }
+    
     .messages{
         display: flex;
         flex-direction: row;
@@ -326,10 +332,10 @@ const addMessage = () => {
         
 
         .sender-icon{
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background-color: #E1F1F5;
-            border-radius: 16px;
+            border-radius: 12px;
             padding: 0;
             margin: 0;
         }
@@ -361,7 +367,7 @@ const addMessage = () => {
                 border-radius: 5px;
             }
             #reference{
-                font-size: 16px;
+                font-size: 12px;
                 color: #fa0202;
             }
         }
