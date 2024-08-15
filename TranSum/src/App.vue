@@ -4,6 +4,13 @@ import { ref } from 'vue'
 //messages array that will be displayed
 const messages = ref([])
 
+//image data to be displayed and looped through
+const images = [
+  "/src/assets/M-Pesa.jpeg",
+  "/src/assets/tigo.png",
+  "/src/assets/nmb.png"
+]
+
 //Data structure to hold predefined messages
 const predefinedMessages = [
   {
@@ -50,7 +57,7 @@ const predefinedMessages = [
     time: "16:30",
     status: "Outgoing"
   }
-  // Add more messages as needed
+ 
 ]
 
 // Index to track the current message in predefinedMessages
@@ -66,7 +73,7 @@ const addMessage = () => {
     currentMessageIndex.value++
   } else {
    
-    console.log('No more messages to add')
+    alert('No more messages to add')
   }
 }
 </script>
@@ -82,10 +89,9 @@ const addMessage = () => {
                       </div>
                       <div class="top-sect-content">
                           <div class="top-sect-container">
-                              <div class="brands"><img src="/src/assets/M-Pesa.jpeg" alt=""></div>
-                              <div class="brands"><img src="/src/assets/tigo.png" alt=""></div>
-                              <div class="brands"><img src="/src/assets/nmb.png" alt=""></div>
+                              <div class="brands" v-for="x in images"><img  v-bind:src="x"></div>                             
                           </div>
+                          
                           <button>View More</button>
                       </div>
                     
@@ -157,7 +163,7 @@ const addMessage = () => {
     display: flex;
     justify-content: center;
     width: 100vw;
-    background-color: rgb(14, 15, 16);
+    background-color: rgb(250, 252, 254);
     
     overflow-x: hidden;
 }
@@ -168,17 +174,21 @@ const addMessage = () => {
     background-color: #E1F1F5;
     border-radius: 25px;
     display: flex;
+    padding: 0;
     flex-direction: column;
+    box-shadow: 0 0 8px 0 rgba(68, 63, 63, 0.2);
+    border: 8px solid rgb(2, 2, 29);
+
 }
 #top-sect{
     padding: 0;
     margin: 0;
     display: flex;
-    background-color: #589BFF;
+    background:linear-gradient(0deg,#589BFF, #195062, #08443e);
     width: 100%;
     height: 300px;
-    border-radius: 25px 25px 40px 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 18px 18px 40px 40px;
+    box-shadow: 0 4px 8px rgba(68, 63, 63, 0.2);
 
     .top-sect-items{
        
@@ -216,8 +226,9 @@ const addMessage = () => {
             button{
                 width: 130px;
                 height: 25px;
-                background-color: #589BFF;
-                border: 2px solid #ffffff;
+                background:linear-gradient(45deg,#589BFF, #1d4f5f, #4085a5);
+
+                border: 2px solid #073f52;
                 border-radius: 20px;
                 margin: 10px;
                 color: #ffffff;
@@ -259,7 +270,7 @@ const addMessage = () => {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin: 10px 20px 0 20px;
+        margin: 10px 20px 5px 20px;
 
         p{
             margin: 0;
@@ -324,7 +335,7 @@ const addMessage = () => {
         justify-content: space-between;
         padding: 0 16px;
         margin: 10px 20px;
-        height: 85px;
+        height: 80px;
         background-color: #ffffff;
         border-radius: 20px;
         align-items: center;
@@ -335,6 +346,7 @@ const addMessage = () => {
             width: 50px;
             height: 50px;
             background-color: #E1F1F5;
+
             border-radius: 12px;
             padding: 0;
             margin: 0;
@@ -367,7 +379,8 @@ const addMessage = () => {
                 border-radius: 5px;
             }
             #reference{
-                font-size: 12px;
+                font-size: 14px;
+                padding: 4px 0;
                 color: #fa0202;
             }
         }
@@ -407,6 +420,7 @@ const addMessage = () => {
     height: 68px;
     padding: 0;
     margin: 0;
+    padding-top: 10px;
     border-radius: 25px;
     background-color: #ffffff;
     display: flex;
@@ -433,7 +447,7 @@ const addMessage = () => {
         margin: 0 16px;
         padding: 0;
         font-size: 28px;
-        background-color: #ffffff;
+        background:none;
         color: #589BFF;
         border: none;
         cursor: pointer;
