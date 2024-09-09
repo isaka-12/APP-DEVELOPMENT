@@ -5,6 +5,20 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> Organizations = [
+      'UN',
+      'WHO',
+      'UNICEF',
+      'UNESCO',
+      'UNDP',
+      'UNHCR',
+      'UNFPA',
+      'UNODC',
+      'UNOPS',
+      'IMG',
+      'UNIDO',
+      'UNWTO',
+    ];
     return Scaffold(
       appBar: AppBar(
         title: const Column(
@@ -17,7 +31,7 @@ class Homepage extends StatelessWidget {
             ),
             SizedBox(height: 2.0),
             Text(
-              'Isaka Dev',
+              'Nicolous Dev',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ],
@@ -27,7 +41,7 @@ class Homepage extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               child: CircleAvatar(
                 // backgroundImage: NetworkImage('https://img.freepik.com/free-photo/cascade-boat-clean-china-natural-rural_1417-1356.jpg'),
-                backgroundImage: AssetImage('assets/images/isaka-image.jpg'), 
+                backgroundImage: AssetImage('assets/images/isaka-image.jpg'),
               ))
         ],
       ),
@@ -48,47 +62,18 @@ class Homepage extends StatelessWidget {
       //   // child: Image(image:NetworkImage('https://img.freepik.com/free-photo/cascade-boat-clean-china-natural-rural_1417-1356.jpg')),
 
       // ),
-      body: Container(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: TextField(
-                decoration: InputDecoration(
-                    hintText: 'Search Donors',
-                    hintStyle: const TextStyle(
-                        fontSize: 20.0, fontWeight: FontWeight.bold),
-                    prefixIcon: const Icon(Icons.search),
-                    border: const OutlineInputBorder(),
-                    fillColor: Colors.green[200],
-                    filled: true,
-                    floatingLabelBehavior: FloatingLabelBehavior.never),
-              ),
+      body: ListView.builder(
+        itemCount: Organizations.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(Organizations[index], style: TextStyle(fontSize: 20)),
+            subtitle: Text('Organization'),
+            leading: CircleAvatar(
+              child: Text(Organizations[index].substring(0, 1)),
             ),
-            const SizedBox(height: 20.0),
-            Container(
-              height: 200.0,
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.all(20.0),
-              decoration: BoxDecoration(
-                //color: Colors.green,
-                image: const DecorationImage(
-                  image: NetworkImage(
-                      'https://img.freepik.com/premium-photo/image-person-color-holding-red-heart-their-hands-hands-are-cupped-heart-is-resting-them_1209158-37713.jpg'),
-                  fit: BoxFit.fill,
-                ),
-                borderRadius: BorderRadius.circular(10.0),
-                // gradient:LinearGradient(
-                //   begin: Alignment.topRight,
-                //   end: Alignment.bottomRight,
-                //   colors: [Colors.red,Colors.green]
-                //   ),
-              ),
-            )
-          ],
-        ),
+          );
+        },
       ),
-
       bottomNavigationBar: BottomNavigationBar(items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
